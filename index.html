@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero-1920.webp" imagesrcset="assets/hero-960.webp 960w, assets/hero-1920.webp 1920w" imagesizes="100vw">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=3">
 
 <script type="application/ld+json">
 {
@@ -554,7 +554,7 @@
     ["https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js", "https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"]
   ];
   var started = false;
-  function start() { if (started) return; started = true; var s = document.createElement("script"); s.src = "assets/js/site.js"; document.body.appendChild(s); }
+  function start() { if (started) return; started = true; var s = document.createElement("script"); s.src = "assets/js/site.js?v=3"; document.body.appendChild(s); }
   function load(urls, done) { var i = 0; (function next() { if (i >= urls.length) return done(); var s = document.createElement("script"); s.src = urls[i++]; s.onload = done; s.onerror = function () { s.remove(); next(); }; document.head.appendChild(s); })(); }
   var k = 0; (function nextLib() { if (k >= libs.length) return start(); load(libs[k++], nextLib); })();
   setTimeout(start, 6000);
