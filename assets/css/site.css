@@ -536,3 +536,21 @@ html.is-locked .fab{opacity:0;visibility:hidden;pointer-events:none}
   .svc__desc{max-height:none;opacity:1;transform:none;margin-top:12px}
   .svc__img img{opacity:.85;filter:none;transform:none}
 }
+
+/* ---------- Роли команды (пока без фото) ---------- */
+.role{position:relative;display:flex;flex-direction:column;gap:14px;min-height:300px;padding:28px;border-radius:var(--radius-3xl);border:1px solid var(--color-line);background:var(--color-surface);transition:box-shadow .4s ease,border-color .4s ease}
+.role:hover{box-shadow:var(--shadow-lift);border-color:color-mix(in srgb,var(--color-honey) 40%,transparent)}
+.role__icon{display:grid;place-items:center;width:56px;height:56px;border-radius:var(--radius-xl);background:var(--color-honey-100);color:var(--color-honey-600)}
+.role__icon svg{width:26px;height:26px;stroke-width:1.6}
+.role__n{position:absolute;top:24px;right:28px;font:500 44px/1 var(--font-display);color:var(--color-line);-webkit-text-stroke:1px color-mix(in srgb,var(--color-honey) 50%,transparent);color:transparent}
+.role h3{margin-top:auto;font-size:clamp(24px,2vw,30px)}
+.role p{font-size:15px;color:var(--color-ink-soft)}
+@media (min-width:1180px){.team .role:nth-child(even){margin-top:64px}}
+
+/* ---------- Карта ---------- */
+.footer__map{display:grid;gap:10px;min-height:0}
+.footer__map iframe{width:100%;height:240px;border:0;border-radius:var(--radius-3xl);filter:grayscale(.85) contrast(1.05);transition:filter .6s ease}
+.footer__map:hover iframe{filter:none}
+[data-theme="dark"] .footer__map iframe,:root:not([data-theme="light"]) .footer__map iframe{filter:grayscale(1) invert(.9) hue-rotate(180deg) contrast(.9)}
+:root:not([data-theme="light"]) .footer__map:hover iframe{filter:grayscale(.4) invert(.9) hue-rotate(180deg)}
+.footer__map-note{font-size:13px;color:var(--color-muted)}

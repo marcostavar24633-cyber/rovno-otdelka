@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero-1920.webp" imagesrcset="assets/hero-960.webp 960w, assets/hero-1920.webp 1920w" imagesizes="100vw">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/site.css?v=3">
+<link rel="stylesheet" href="assets/css/site.css?v=4">
 
 <script type="application/ld+json">
 {
@@ -252,7 +252,8 @@
   </section>
 
   <!-- 7. До / После -->
-  <section class="section" id="do-posle">
+  <!-- Блок «До / После»: вставьте реальные фото в .ba__before / .ba__after и уберите атрибут hidden -->
+  <section class="section" id="do-posle" hidden>
     <div class="container ba-wrap">
       <div class="head">
         <p class="eyebrow">До и после</p>
@@ -383,10 +384,6 @@
       <ul class="marquee__track"><li>Гипсовые штукатурки</li><li>Керамогранит</li><li>Кварцвинил</li><li>Инженерная доска</li><li>Моющиеся краски</li><li>Влагостойкий ГКЛ</li><li>Обмазочная гидроизоляция</li><li>Стеклохолст</li></ul>
       <ul class="marquee__track" aria-hidden="true"><li>Гипсовые штукатурки</li><li>Керамогранит</li><li>Кварцвинил</li><li>Инженерная доска</li><li>Моющиеся краски</li><li>Влагостойкий ГКЛ</li><li>Обмазочная гидроизоляция</li><li>Стеклохолст</li></ul>
     </div>
-    <div class="marquee marquee--logos marquee--rev" data-velocity aria-label="Партнёры">
-      <ul class="marquee__track"><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 1]</li><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 2]</li><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 3]</li><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 4]</li><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 5]</li></ul>
-      <ul class="marquee__track" aria-hidden="true"><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 1]</li><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 2]</li><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 3]</li><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 4]</li><li class="logo-ph">[ЛОГОТИП ПОСТАВЩИКА 5]</li></ul>
-    </div>
   </section>
 
   <!-- 12. Команда -->
@@ -394,19 +391,22 @@
     <div class="container">
       <div class="head">
         <p class="eyebrow">Кто приедет на объект</p>
-        <h2 class="reveal-title">Люди, которые отвечают за ваш ремонт</h2>
+        <h2 class="reveal-title">У каждого этапа — свой ответственный</h2>
+        <p class="head__sub">На объекте работают мастера своего профиля, а прораб собирает всё в один график.</p>
       </div>
+      <!-- Когда будут фото команды: портреты 3:4, можно вернуть карточки с фото (см. README) -->
       <div class="team">
-        <figure class="person"><div class="person__ph ph">[ФОТО: прораб, портрет по пояс]</div><figcaption><b>[ИМЯ ФАМИЛИЯ]</b><span>Прораб — ведёт объект, принимает этапы вместе с вами</span></figcaption></figure>
-        <figure class="person"><div class="person__ph ph">[ФОТО: сметчик или замерщик]</div><figcaption><b>[ИМЯ ФАМИЛИЯ]</b><span>Замер и смета — считает каждое помещение</span></figcaption></figure>
-        <figure class="person"><div class="person__ph ph">[ФОТО: мастер-плиточник]</div><figcaption><b>[ИМЯ ФАМИЛИЯ]</b><span>Плитка и керамогранит — санузлы и кухни</span></figcaption></figure>
-        <figure class="person"><div class="person__ph ph">[ФОТО: мастер-отделочник]</div><figcaption><b>[ИМЯ ФАМИЛИЯ]</b><span>Штукатурка, шпаклёвка, покраска</span></figcaption></figure>
+        <article class="role tilt"><span class="role__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20V10l6-6 6 6v10"/><path d="M10 20v-5h4v5"/></svg></span><span class="role__n">01</span><h3>Прораб</h3><p>Ведёт объект от первого дня до сдачи. Принимает этапы вместе с вами и отвечает за сроки по календарному плану.</p></article>
+        <article class="role tilt"><span class="role__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17 17 3l4 4L7 21H3z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/></svg></span><span class="role__n">02</span><h3>Замерщик-сметчик</h3><p>Приезжает на бесплатный замер, проверяет стены и углы, считает смету по каждому помещению.</p></article>
+        <article class="role tilt"><span class="role__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/></svg></span><span class="role__n">03</span><h3>Плиточник</h3><p>Санузлы, кухонный фартук, керамогранит на полу: раскладка, ровные швы и углы.</p></article>
+        <article class="role tilt"><span class="role__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12v5H4z"/><path d="M16 6h3v5h-8v3"/><path d="M10 14h2v7h-2z"/></svg></span><span class="role__n">04</span><h3>Мастер-отделочник</h3><p>Штукатурка по маякам, шпаклёвка, покраска, обои, напольные покрытия и потолки.</p></article>
       </div>
     </div>
   </section>
 
   <!-- 13. Отзывы -->
-  <section class="section section--alt" id="otzyvy">
+  <!-- Блок «Отзывы»: замените карточки реальными отзывами и уберите атрибут hidden -->
+  <section class="section section--alt" id="otzyvy" hidden>
     <div class="container">
       <div class="head head--row">
         <div><p class="eyebrow">Отзывы</p><h2 class="reveal-title">Что говорят клиенты</h2></div>
@@ -495,7 +495,7 @@
       <p><a href="https://t.me/+79631282558" target="_blank" rel="noopener">Telegram</a></p>
       <p>Ульяновск</p>
     </div>
-    <div class="footer__map ph">[КАРТА: адрес офиса или зона выезда по Ульяновску]</div>
+    <div class="footer__map"><iframe src="https://yandex.ru/map-widget/v1/?ll=48.403123%2C54.314192&amp;z=11" title="Карта: зона выезда — Ульяновск" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe><p class="footer__map-note">Выезжаем на замер по Ульяновску</p></div>
   </div>
   <div class="container footer__bottom">
     <span>© 2026 «Ровно»</span>
@@ -554,7 +554,7 @@
     ["https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js", "https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"]
   ];
   var started = false;
-  function start() { if (started) return; started = true; var s = document.createElement("script"); s.src = "assets/js/site.js?v=3"; document.body.appendChild(s); }
+  function start() { if (started) return; started = true; var s = document.createElement("script"); s.src = "assets/js/site.js?v=4"; document.body.appendChild(s); }
   function load(urls, done) { var i = 0; (function next() { if (i >= urls.length) return done(); var s = document.createElement("script"); s.src = urls[i++]; s.onload = done; s.onerror = function () { s.remove(); next(); }; document.head.appendChild(s); })(); }
   var k = 0; (function nextLib() { if (k >= libs.length) return start(); load(libs[k++], nextLib); })();
   setTimeout(start, 6000);

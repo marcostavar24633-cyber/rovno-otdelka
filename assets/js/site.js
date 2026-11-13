@@ -412,11 +412,11 @@ const CONFIG = {
   $$(".head .eyebrow, .head__sub, .cta__lead, .cta__phone").forEach(el => gsap.from(el, { autoAlpha: 0, y: 24, duration: 1, ease: P3, scrollTrigger: { trigger: el, start: "top 88%" } }));
 
   // --- появление групп по очереди ---
-  ScrollTrigger.batch(".stat, .review, .faq details, .calc__box, .quiz, .person figcaption, .cta .form, .footer__grid > *, .materials .marquee", {
+  ScrollTrigger.batch(".stat, .review, .faq details, .calc__box, .quiz, .role, .cta .form, .footer__grid > *, .materials .marquee", {
     start: "top 88%", once: true,
     onEnter: els => gsap.fromTo(els, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 1, ease: P3, stagger: .1, overwrite: true })
   });
-  gsap.set(".stat, .review, .faq details, .calc__box, .quiz, .person figcaption, .cta .form, .footer__grid > *, .materials .marquee", { autoAlpha: 0 });
+  gsap.set(".stat, .review, .faq details, .calc__box, .quiz, .role, .cta .form, .footer__grid > *, .materials .marquee", { autoAlpha: 0 });
 
   // --- счётчики ---
   $$(".count").forEach(c => {
