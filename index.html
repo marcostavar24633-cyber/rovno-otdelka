@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Отделка квартир в Ульяновске под ключ — «Ровно»</title>
+<meta name="description" content="Черновая и чистовая отделка квартир, санузлов и офисов в Ульяновске. Бесплатный замер, смета по каждому помещению до начала работ, оплата по этапам.">
+<link rel="canonical" href="https://marcostavar24633-cyber.github.io/rovno-otdelka/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Отделка квартир в Ульяновске ровно по смете">
+<meta property="og:description" content="Бесплатный замер и смета по каждому помещению. Оплата по этапам после приёмки.">
+<meta property="og:url" content="https://marcostavar24633-cyber.github.io/rovno-otdelka/">
+<meta property="og:image" content="https://marcostavar24633-cyber.github.io/rovno-otdelka/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E4E5E1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Ровно — отделка помещений",
+  "description": "Черновая и чистовая отделка квартир, санузлов и коммерческих помещений в Ульяновске.",
+  "url": "https://marcostavar24633-cyber.github.io/rovno-otdelka/",
+  "image": "https://marcostavar24633-cyber.github.io/rovno-otdelka/assets/og.png",
+  "areaServed": {"@type": "City", "name": "Ульяновск"},
+  "address": {"@type": "PostalAddress", "addressLocality": "Ульяновск", "addressCountry": "RU"},
+  "makesOffer": [
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Черновая отделка квартир"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Чистовая отделка квартир"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Отделка санузлов и кухонь"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Отделка офисов и магазинов"}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Смета вырастет по ходу работ?", "acceptedAnswer": {"@type": "Answer", "text": "Смету считаем после замера по каждому помещению и прикладываем к договору. Если вы захотите добавить работы, сначала согласуем доплату письменно, без этого цена не меняется."}},
+    {"@type": "Question", "name": "Нужно ли платить аванс?", "acceptedAnswer": {"@type": "Answer", "text": "Работы оплачиваются по этапам: приняли этап — оплатили его. Материалы закупаем по согласованному списку, чеки отдаём вам."}},
+    {"@type": "Question", "name": "Сколько длится отделка квартиры?", "acceptedAnswer": {"@type": "Answer", "text": "Срок зависит от площади и объёма работ. Точные даты по каждому этапу фиксируем в календарном плане, который подписываем вместе с договором."}},
+    {"@type": "Question", "name": "Кто покупает материалы?", "acceptedAnswer": {"@type": "Answer", "text": "Как вам удобнее. Можем закупить и привезти сами по списку из сметы, а можете покупать вы — дадим точный список с количеством."}},
+    {"@type": "Question", "name": "Работаете в новостройках с предчистовой отделкой и white box?", "acceptedAnswer": {"@type": "Answer", "text": "Да. На замере проверим, что застройщик уже сделал, и в смету включим только то, что действительно нужно доделать."}},
+    {"@type": "Question", "name": "Как контролировать работу, если я не могу приезжать?", "acceptedAnswer": {"@type": "Answer", "text": "Каждый этап принимаете по фото и видео в мессенджере или лично на объекте. Следующий этап начинаем только после вашей приёмки."}},
+    {"@type": "Question", "name": "А если после сдачи что-то пойдёт не так?", "acceptedAnswer": {"@type": "Answer", "text": "На работы действует гарантия по договору. Если дефект появился по нашей вине, устраним его за свой счёт."}}
+  ]
+}
+</script>
+
+<style>
+:root{
+  /* цвета */
+  --c-bg:#E4E5E1;          /* шпаклёвка */
+  --c-surface:#F5F5F2;     /* загрунтованная стена */
+  --c-ink:#1E2422;         /* графит */
+  --c-muted:#4E5653;       /* приглушённый текст */
+  --c-line:#B9BCB6;        /* риски, границы */
+  --c-accent:#0D7A3E;      /* кнопки */
+  --c-accent-hover:#0A6332;
+  --c-laser:#22D660;       /* лазерная линия, только декор */
+  --c-on-dark:#E9EBE7;
+  --c-error:#B3261E;
+  --c-success:#0D7A3E;
+  /* типографика */
+  --font:"Geologica", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fs-xs:.875rem;
+  --fs-s:1rem;
+  --fs-m:clamp(1.0625rem, 1rem + .3vw, 1.25rem);
+  --fs-l:clamp(1.375rem, 1.15rem + .9vw, 1.875rem);
+  --fs-xl:clamp(1.875rem, 1.3rem + 2.4vw, 3.25rem);
+  --fs-xxl:clamp(2.375rem, 1.3rem + 4.8vw, 5.5rem);
+  --lh-tight:1.05;
+  --lh-head:1.15;
+  --lh-body:1.55;
+  /* отступы: шаг 4/8 */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px; --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px; --s-10:128px;
+  --container:1200px;
+  --r-s:4px; --r-m:10px; --r-pill:999px;
+  --shadow-1:0 1px 0 rgba(30,36,34,.08), 0 2px 6px rgba(30,36,34,.08);
+  --shadow-2:0 10px 30px -12px rgba(30,36,34,.35);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--c-bg);color:var(--c-ink);font-family:var(--font);font-size:var(--fs-s);line-height:var(--lh-body);font-weight:400}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:var(--lh-head);letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--c-accent);outline-offset:3px;border-radius:var(--r-s)}
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--s-5)}
+@media (min-width:768px){.container{padding-inline:var(--s-7)}}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:var(--s-4);top:var(--s-4);background:var(--c-surface);padding:var(--s-2) var(--s-4);z-index:100}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);min-height:52px;padding:0 var(--s-6);border-radius:var(--r-pill);border:2px solid transparent;font:inherit;font-weight:700;font-size:var(--fs-s);text-decoration:none;cursor:pointer;transition:background-color .2s, transform .2s, border-color .2s}
+.btn--primary{background:var(--c-accent);color:#fff}
+.btn--primary:hover{background:var(--c-accent-hover);transform:translateY(-1px)}
+.btn--secondary{background:transparent;color:var(--c-ink);border-color:var(--c-ink)}
+.btn--secondary:hover{background:var(--c-ink);color:var(--c-bg)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn--sm{min-height:44px;padding:0 var(--s-5);font-size:var(--fs-xs)}
+
+/* шапка */
+.header{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--c-bg) 92%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--c-line)}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);min-height:68px}
+.logo{display:flex;align-items:center;gap:var(--s-2);font-weight:800;font-size:1.375rem;text-decoration:none;letter-spacing:-.03em}
+.logo svg{width:34px;height:14px}
+.nav{display:none;gap:var(--s-6)}
+.nav a{text-decoration:none;font-weight:500;color:var(--c-muted)}
+.nav a:hover{color:var(--c-ink)}
+.header__right{display:flex;align-items:center;gap:var(--s-4)}
+.header__phone{display:none;font-weight:700;text-decoration:none}
+@media (min-width:1024px){.nav{display:flex}.header__phone{display:inline}}
+
+/* hero */
+.hero{padding-top:var(--s-8);overflow:hidden}
+.hero h1{font-size:var(--fs-xxl);line-height:var(--lh-tight);letter-spacing:-.035em;max-width:13ch}
+.hero__lead{margin-top:var(--s-5);font-size:var(--fs-m);color:var(--c-muted);max-width:56ch}
+.hero__actions{margin-top:var(--s-6);display:flex;flex-wrap:wrap;gap:var(--s-3);align-items:center}
+.hero__note{font-size:var(--fs-xs);color:var(--c-muted)}
+.level-scene{position:relative;margin-top:var(--s-8);height:150px}
+.laser{position:absolute;left:0;right:0;top:58px;height:2px;background:var(--c-laser);box-shadow:0 0 12px 1px color-mix(in srgb, var(--c-laser) 70%, transparent);transform-origin:left;animation:draw 1.1s cubic-bezier(.6,0,.2,1) both}
+.ruler{position:absolute;left:0;right:0;top:66px;height:22px;
+  background:
+    repeating-linear-gradient(90deg, var(--c-ink) 0 1px, transparent 1px 80px) top/100% 22px no-repeat,
+    repeating-linear-gradient(90deg, var(--c-ink) 0 1px, transparent 1px 40px) top/100% 14px no-repeat,
+    repeating-linear-gradient(90deg, var(--c-muted) 0 1px, transparent 1px 8px) top/100% 8px no-repeat;
+  opacity:.55}
+.level{position:absolute;right:max(var(--s-5), calc((100vw - var(--container))/2 + var(--s-7)));top:24px;width:min(460px, 78vw)}
+.level .bubble{animation:settle 1.6s .5s cubic-bezier(.3,1.4,.5,1) both}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes settle{0%{transform:translateX(62px)}100%{transform:translateX(0)}}
+.trust{display:grid;gap:var(--s-4);padding-block:var(--s-6) var(--s-8);border-bottom:1px solid var(--c-line)}
+.trust li{list-style:none;padding-left:var(--s-5);position:relative;font-weight:500;max-width:34ch}
+.trust li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:2px;background:var(--c-accent)}
+.trust{margin:0;padding-left:0}
+@media (min-width:768px){.trust{grid-template-columns:repeat(3,1fr)}}
+
+/* секции */
+.section{padding-block:var(--s-9)}
+.section--surface{background:var(--c-surface)}
+.section__head{max-width:760px;margin-bottom:var(--s-7)}
+.section__head h2{font-size:var(--fs-xl)}
+.section__head p{margin-top:var(--s-4);color:var(--c-muted);font-size:var(--fs-m)}
+
+/* было/стало */
+.compare{border-top:2px solid var(--c-ink)}
+.compare__row{display:grid;gap:var(--s-3);padding-block:var(--s-6);border-bottom:1px solid var(--c-line)}
+.compare__row h3{font-size:var(--fs-l)}
+.compare__usual{color:var(--c-muted)}
+.compare__usual::before{content:"Обычно: ";font-weight:700;color:var(--c-ink)}
+.compare__ours::before{content:"У нас: ";font-weight:700;color:var(--c-accent)}
+@media (min-width:900px){.compare__row{grid-template-columns:1.1fr 1fr 1fr;gap:var(--s-7);align-items:baseline}}
+
+/* услуги */
+.services{display:grid;gap:var(--s-2)}
+.service{background:var(--c-bg);border-radius:var(--r-m);padding:var(--s-6)}
+.service h3{font-size:var(--fs-l)}
+.service p{margin-top:var(--s-3);color:var(--c-muted)}
+.service ul{margin:var(--s-4) 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.badge{display:inline-block;padding:var(--s-1) var(--s-3);border-radius:var(--r-pill);background:var(--c-surface);border:1px solid var(--c-line);font-size:var(--fs-xs);font-weight:500}
+@media (min-width:768px){.services{grid-template-columns:1fr 1fr}}
+.service--wide{background:var(--c-ink);color:var(--c-on-dark)}
+.service--wide p{color:#B9BEBA}
+.service--wide .badge{background:transparent;border-color:#4E5653;color:var(--c-on-dark)}
+
+/* цены */
+.prices{display:grid;gap:var(--s-5)}
+.price{border-top:2px solid var(--c-ink);padding-top:var(--s-5)}
+.price h3{font-size:var(--fs-m)}
+.price__val{margin-top:var(--s-3);font-size:var(--fs-xl);font-weight:800;letter-spacing:-.03em;line-height:1}
+.price__val small{font-size:var(--fs-s);font-weight:500;color:var(--c-muted);letter-spacing:0}
+.price p{margin-top:var(--s-3);color:var(--c-muted)}
+.prices__note{margin-top:var(--s-7);display:flex;flex-wrap:wrap;gap:var(--s-4);align-items:center;justify-content:space-between;padding:var(--s-5) var(--s-6);background:var(--c-surface);border-radius:var(--r-m)}
+@media (min-width:900px){.prices{grid-template-columns:repeat(3,1fr);gap:var(--s-7)}}
+
+/* шаги */
+.steps{list-style:none;margin:0;padding:0;position:relative}
+.steps::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--c-line)}
+.steps::after{content:"";position:absolute;left:19px;top:8px;width:2px;height:calc(100% - 16px);background:var(--c-laser);box-shadow:0 0 10px var(--c-laser);transform-origin:top;transform:scaleY(var(--p,0));transition:transform .2s linear}
+.step{position:relative;padding-left:72px;padding-bottom:var(--s-7);max-width:62ch}
+.step:last-child{padding-bottom:0}
+.step__n{position:absolute;z-index:1;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--c-bg);border:2px solid var(--c-ink);display:grid;place-items:center;font-weight:800}
+.step h3{font-size:var(--fs-l);padding-top:2px}
+.step p{margin-top:var(--s-2);color:var(--c-muted)}
+.section--surface .step__n{background:var(--c-surface)}
+
+/* работы */
+.works{display:grid;gap:var(--s-4)}
+.ph{aspect-ratio:4/3;border:2px dashed var(--c-line);border-radius:var(--r-m);display:grid;place-items:center;text-align:center;padding:var(--s-5);color:var(--c-muted);font-weight:500;background:repeating-linear-gradient(-45deg, transparent 0 14px, rgba(30,36,34,.03) 14px 28px)}
+@media (min-width:768px){.works{grid-template-columns:repeat(3,1fr)}}
+
+/* FAQ */
+.faq{border-top:2px solid var(--c-ink);max-width:860px}
+.faq details{border-bottom:1px solid var(--c-line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:var(--s-5);padding-block:var(--s-5);font-weight:700;font-size:var(--fs-m)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:14px;height:14px;margin-top:.35em;border-right:2px solid var(--c-ink);border-bottom:2px solid var(--c-ink);transform:rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq details p{padding-bottom:var(--s-5);color:var(--c-muted);max-width:66ch}
+
+/* заявка */
+.cta{background:var(--c-ink);color:var(--c-on-dark);position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--c-laser);box-shadow:0 0 14px var(--c-laser)}
+.cta__grid{display:grid;gap:var(--s-8)}
+.cta h2{font-size:var(--fs-xl);color:#fff}
+.cta__lead{margin-top:var(--s-4);color:#B9BEBA;font-size:var(--fs-m);max-width:44ch}
+.contacts{margin-top:var(--s-6);display:grid;gap:var(--s-3)}
+.contacts a{font-weight:700;font-size:var(--fs-m);text-decoration-color:#4E5653;text-underline-offset:4px}
+@media (min-width:960px){.cta__grid{grid-template-columns:1fr 1fr}}
+.form{background:var(--c-surface);color:var(--c-ink);border-radius:var(--r-m);padding:var(--s-6);display:grid;gap:var(--s-4)}
+.field{display:grid;gap:var(--s-1)}
+.field label{font-weight:500;font-size:var(--fs-xs)}
+.input{width:100%;min-height:52px;padding:0 var(--s-4);border:1.5px solid var(--c-line);border-radius:var(--r-s);background:#fff;font:inherit;color:var(--c-ink);transition:border-color .2s, box-shadow .2s}
+select.input{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--c-ink) 50%),linear-gradient(135deg,var(--c-ink) 50%,transparent 50%);background-position:calc(100% - 22px) 50%, calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:var(--s-7)}
+.input:focus{outline:none;border-color:var(--c-accent);box-shadow:0 0 0 3px color-mix(in srgb, var(--c-accent) 25%, transparent)}
+.field.is-error .input{border-color:var(--c-error)}
+.field__err{display:none;color:var(--c-error);font-size:var(--fs-xs)}
+.field.is-error .field__err{display:block}
+.check{display:flex;gap:var(--s-3);align-items:flex-start;font-size:var(--fs-xs);color:var(--c-muted)}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--c-accent);flex:none}
+.form__status{font-size:var(--fs-xs)}
+.form__status.is-ok{color:var(--c-success);font-weight:700}
+.form__status.is-err{color:var(--c-error)}
+.form__sent{display:none;text-align:center;padding-block:var(--s-7)}
+.form.is-sent > *:not(.form__sent){display:none}
+.form.is-sent .form__sent{display:block}
+.form__sent h3{font-size:var(--fs-l)}
+.form__sent p{margin-top:var(--s-3);color:var(--c-muted)}
+
+/* футер */
+.footer{background:var(--c-ink);color:#B9BEBA;border-top:1px solid #343B38;padding-block:var(--s-7) calc(var(--s-7) + 72px);font-size:var(--fs-xs)}
+.footer__in{display:grid;gap:var(--s-4)}
+.footer .logo{color:var(--c-on-dark)}
+@media (min-width:768px){.footer__in{grid-template-columns:1fr auto auto;align-items:center;gap:var(--s-7)}.footer{padding-bottom:var(--s-7)}}
+
+/* мобильная липкая кнопка */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:var(--s-3) var(--s-4);background:color-mix(in srgb, var(--c-bg) 94%, transparent);backdrop-filter:blur(8px);border-top:1px solid var(--c-line);display:flex;gap:var(--s-2)}
+.sticky-cta .btn{flex:1}
+@media (min-width:768px){.sticky-cta{display:none}}
+@media (max-width:767px){body{padding-bottom:76px}.header .btn{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .steps::after{transform:scaleY(1)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="header">
+  <div class="container header__in">
+    <a class="logo" href="#top" aria-label="Ровно — на главную">
+      <svg viewBox="0 0 34 14" aria-hidden="true"><rect x="0.75" y="0.75" width="32.5" height="12.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="4" width="12" height="6" rx="3" fill="#22D660"/></svg>
+      Ровно
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#uslugi">Услуги</a>
+      <a href="#ceny">Цены</a>
+      <a href="#etapy">Как работаем</a>
+      <a href="#voprosy">Вопросы</a>
+    </nav>
+    <div class="header__right">
+      <a class="header__phone" href="tel:[ТЕЛЕФОН]">[ТЕЛЕФОН]</a>
+      <a class="btn btn--primary btn--sm" href="#zayavka">Вызвать замерщика</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="container">
+      <h1>Отделка квартир в Ульяновске ровно по смете</h1>
+      <p class="hero__lead">Черновая и чистовая отделка квартир, санузлов и офисов. Сначала бесплатный замер и смета по каждому помещению, потом договор. Платите по этапам, после того как приняли работу.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#zayavka">Вызвать замерщика бесплатно</a>
+        <a class="btn btn--secondary" href="#ceny">Посмотреть цены</a>
+      </div>
+    </div>
+    <div class="level-scene" aria-hidden="true">
+      <div class="laser"></div>
+      <div class="ruler"></div>
+      <svg class="level" viewBox="0 0 460 70" role="presentation">
+        <defs>
+          <linearGradient id="alu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D3D6D1"/><stop offset=".55" stop-color="#B7BBB5"/><stop offset="1" stop-color="#9A9F99"/></linearGradient>
+          <linearGradient id="vial" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8F5D6"/><stop offset="1" stop-color="#7EE3A1"/></linearGradient>
+        </defs>
+        <rect x="1" y="6" width="458" height="56" rx="6" fill="url(#alu)" stroke="#1E2422" stroke-width="2"/>
+        <rect x="16" y="20" width="60" height="28" rx="4" fill="#1E2422"/>
+        <rect x="384" y="20" width="60" height="28" rx="4" fill="#1E2422"/>
+        <rect x="160" y="16" width="140" height="36" rx="18" fill="#1E2422"/>
+        <rect x="166" y="22" width="128" height="24" rx="12" fill="url(#vial)"/>
+        <line x1="212" y1="20" x2="212" y2="48" stroke="#1E2422" stroke-width="2"/>
+        <line x1="248" y1="20" x2="248" y2="48" stroke="#1E2422" stroke-width="2"/>
+        <g class="bubble"><ellipse cx="230" cy="34" rx="13" ry="8" fill="#F5FFF8" stroke="#3FBF6E" stroke-width="1"/><ellipse cx="226" cy="31" rx="4" ry="2" fill="#fff"/></g>
+      </svg>
+    </div>
+    <div class="container">
+      <ul class="trust">
+        <li>Смета по каждому помещению до начала работ, приложением к договору</li>
+        <li>Оплата по этапам: приняли этап — оплатили</li>
+        <li>Гарантия на работы [СРОК ГАРАНТИИ] по договору</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="pochemu">
+    <div class="container">
+      <div class="section__head">
+        <h2>Три причины, из‑за которых ремонт превращается в мучение</h2>
+        <p>Мы выстроили работу так, чтобы они вас не касались.</p>
+      </div>
+      <div class="compare">
+        <div class="compare__row">
+          <h3>Смета растёт по ходу работ</h3>
+          <p class="compare__usual">в начале называют низкую цену за метр, потом появляются «непредвиденные» работы.</p>
+          <p class="compare__ours">считаем после замера каждое помещение отдельно. Новые работы — только после вашего письменного согласия.</p>
+        </div>
+        <div class="compare__row">
+          <h3>Сроки «примерно три месяца»</h3>
+          <p class="compare__usual">срок звучит устно, бригада уходит на другой объект.</p>
+          <p class="compare__ours">календарный план по этапам подписываем вместе с договором.</p>
+        </div>
+        <div class="compare__row">
+          <h3>Всё приходится проверять самому</h3>
+          <p class="compare__usual">ездите на объект, ищете косяки, спорите о переделках.</p>
+          <p class="compare__ours">каждый этап сдаём по фото и видео или на объекте. Следующий начинаем после вашей приёмки.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface" id="uslugi">
+    <div class="container">
+      <div class="section__head">
+        <h2>Что делаем</h2>
+        <p>Внутренняя отделка от голого бетона до последнего плинтуса. Можно заказать весь объём или отдельный этап.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <h3>Черновая отделка</h3>
+          <p>Готовим основание: ровные стены, пол и потолок под чистовую отделку.</p>
+          <ul><li class="badge">штукатурка по маякам</li><li class="badge">стяжка пола</li><li class="badge">перегородки из ГКЛ</li><li class="badge">гидроизоляция</li></ul>
+        </article>
+        <article class="service">
+          <h3>Чистовая отделка</h3>
+          <p>То, что вы видите каждый день: стены, полы, потолки, двери.</p>
+          <ul><li class="badge">шпаклёвка и покраска</li><li class="badge">обои</li><li class="badge">ламинат и кварцвинил</li><li class="badge">потолки</li><li class="badge">двери и плинтус</li></ul>
+        </article>
+        <article class="service">
+          <h3>Санузлы и кухни</h3>
+          <p>Самые требовательные помещения: плитка, короба, ровные углы и швы.</p>
+          <ul><li class="badge">укладка плитки</li><li class="badge">короба и инсталляции</li><li class="badge">фартук на кухне</li></ul>
+        </article>
+        <article class="service service--wide">
+          <h3>Офисы и магазины</h3>
+          <p>Отделка коммерческих помещений с работой в удобное для вас время, чтобы не мешать бизнесу.</p>
+          <ul><li class="badge">офисы</li><li class="badge">торговые помещения</li><li class="badge">салоны и студии</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ceny">
+    <div class="container">
+      <div class="section__head">
+        <h2>Сколько стоит</h2>
+        <p>Цены за работу, без материалов. Точную сумму назовём после замера: она зависит от состояния стен и выбранных покрытий.</p>
+      </div>
+      <div class="prices">
+        <div class="price">
+          <h3>Черновая отделка</h3>
+          <div class="price__val">от [ЦЕНА] <small>₽/м²</small></div>
+          <p>Для квартир в новостройках без отделки.</p>
+        </div>
+        <div class="price">
+          <h3>Чистовая отделка</h3>
+          <div class="price__val">от [ЦЕНА] <small>₽/м²</small></div>
+          <p>Для квартир с предчистовой отделкой и white box.</p>
+        </div>
+        <div class="price">
+          <h3>Отделка под ключ</h3>
+          <div class="price__val">от [ЦЕНА] <small>₽/м²</small></div>
+          <p>Весь цикл: от бетона до готовой квартиры.</p>
+        </div>
+      </div>
+      <div class="prices__note">
+        <p>Замер и смета бесплатно и ни к чему не обязывают.</p>
+        <a class="btn btn--primary" href="#zayavka">Рассчитать мою квартиру</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface" id="etapy">
+    <div class="container">
+      <div class="section__head">
+        <h2>Как работаем</h2>
+        <p>Пять шагов от заявки до ключей. На каждом вы знаете, что происходит и сколько это стоит.</p>
+      </div>
+      <ol class="steps">
+        <li class="step"><span class="step__n">1</span><h3>Заявка</h3><p>Оставляете телефон, перезваниваем и договариваемся о времени замера.</p></li>
+        <li class="step"><span class="step__n">2</span><h3>Замер и смета</h3><p>Приезжаем, измеряем каждое помещение, проверяем стены и углы. Смету присылаем по каждой комнате отдельно. Бесплатно.</p></li>
+        <li class="step"><span class="step__n">3</span><h3>Договор</h3><p>Смета и календарный план становятся приложениями к договору. Цена и сроки зафиксированы.</p></li>
+        <li class="step"><span class="step__n">4</span><h3>Работы по этапам</h3><p>Каждый этап сдаём вам: лично или по фото и видео. Оплачиваете то, что приняли.</p></li>
+        <li class="step"><span class="step__n">5</span><h3>Уборка и сдача</h3><p>Вывозим мусор, убираем и передаём квартиру с актом и гарантией.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="raboty">
+    <div class="container">
+      <div class="section__head">
+        <h2>Наши объекты</h2>
+        <p>Квартиры и офисы, которые мы отделали в Ульяновске.</p>
+      </div>
+      <div class="works">
+        <div class="ph">[ФОТО: объект 1, до и после]</div>
+        <div class="ph">[ФОТО: объект 2, санузел с плиткой]</div>
+        <div class="ph">[ФОТО: объект 3, готовая комната]</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface" id="voprosy">
+    <div class="container">
+      <div class="section__head">
+        <h2>Частые вопросы</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Смета вырастет по ходу работ?</summary><p>Смету считаем после замера по каждому помещению и прикладываем к договору. Если вы захотите добавить работы, сначала согласуем доплату письменно, без этого цена не меняется.</p></details>
+        <details><summary>Нужно ли платить аванс?</summary><p>Работы оплачиваются по этапам: приняли этап — оплатили его. Материалы закупаем по согласованному списку, чеки отдаём вам.</p></details>
+        <details><summary>Сколько длится отделка квартиры?</summary><p>Срок зависит от площади и объёма работ. Точные даты по каждому этапу фиксируем в календарном плане, который подписываем вместе с договором.</p></details>
+        <details><summary>Кто покупает материалы?</summary><p>Как вам удобнее. Можем закупить и привезти сами по списку из сметы, а можете покупать вы — дадим точный список с количеством.</p></details>
+        <details><summary>Работаете в новостройках с предчистовой отделкой и white box?</summary><p>Да. На замере проверим, что застройщик уже сделал, и в смету включим только то, что действительно нужно доделать.</p></details>
+        <details><summary>Как контролировать работу, если я не могу приезжать?</summary><p>Каждый этап принимаете по фото и видео в мессенджере или лично на объекте. Следующий этап начинаем только после вашей приёмки.</p></details>
+        <details><summary>А если после сдачи что-то пойдёт не так?</summary><p>На работы действует гарантия по договору. Если дефект появился по нашей вине, устраним его за свой счёт.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta" id="zayavka">
+    <div class="container cta__grid">
+      <div>
+        <h2>Запишитесь на бесплатный замер</h2>
+        <p class="cta__lead">Перезвоним, договоримся о времени и приедем. Смету по каждому помещению пришлём после замера.</p>
+        <div class="contacts">
+          <a href="tel:[ТЕЛЕФОН]">[ТЕЛЕФОН]</a>
+          <a href="[ССЫЛКА НА TELEGRAM]" target="_blank" rel="noopener">Написать в Telegram</a>
+        </div>
+      </div>
+      <form class="form" id="lead-form" novalidate>
+        <div class="field" data-field="name">
+          <label for="f-name">Как вас зовут</label>
+          <input class="input" id="f-name" name="name" type="text" autocomplete="given-name" required>
+          <span class="field__err">Напишите имя, чтобы мы знали, как к вам обращаться</span>
+        </div>
+        <div class="field" data-field="phone">
+          <label for="f-phone">Телефон</label>
+          <input class="input" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+          <span class="field__err">Введите номер полностью: 10 цифр после +7</span>
+        </div>
+        <div class="field">
+          <label for="f-type">Что нужно отделать</label>
+          <select class="input" id="f-type" name="type">
+            <option>Новостройка без отделки</option>
+            <option>Новостройка с предчистовой / white box</option>
+            <option>Вторичка</option>
+            <option>Санузел или кухня</option>
+            <option>Офис или магазин</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-area">Площадь, м² (если знаете)</label>
+          <input class="input" id="f-area" name="area" type="number" inputmode="numeric" min="1" max="2000">
+        </div>
+        <div class="field" data-field="consent">
+          <label class="check"><input type="checkbox" id="f-consent" name="consent" required> <span>Согласен на обработку персональных данных по <a href="privacy.html">политике конфиденциальности</a></span></label>
+          <span class="field__err">Без согласия мы не можем принять заявку</span>
+        </div>
+        <button class="btn btn--primary" type="submit">Записаться на замер</button>
+        <p class="form__status" role="status" aria-live="polite"></p>
+        <div class="form__sent">
+          <h3>Заявка отправлена</h3>
+          <p>Перезвоним в рабочее время и договоримся о замере.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__in">
+    <a class="logo" href="#top">Ровно</a>
+    <p>Внутренняя отделка помещений, Ульяновск<br>[РЕКВИЗИТЫ: ИП/ООО, ИНН, ОГРН]</p>
+    <p><a href="tel:[ТЕЛЕФОН]">[ТЕЛЕФОН]</a><br><a href="privacy.html">Политика конфиденциальности</a></p>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn--secondary btn--sm" href="tel:[ТЕЛЕФОН]">Позвонить</a>
+  <a class="btn btn--primary btn--sm" href="#zayavka">Вызвать замерщика</a>
+</div>
+
+<script>
+const CONFIG = {
+  // Адрес обработчика формы (например, https://formspree.io/f/xxxxxx). Пока пусто — форма предложит позвонить.
+  formEndpoint: "",
+  phone: "[ТЕЛЕФОН]"
+};
+
+(function(){
+  // Маска телефона
+  const phone = document.getElementById('f-phone');
+  function digits(v){ let d = v.replace(/\D/g,''); if (d.startsWith('8')) d = '7' + d.slice(1); if (!d.startsWith('7')) d = '7' + d; return d.slice(0,11); }
+  function fmt(d){ const p = d.slice(1); let s = '+7'; if (p.length) s += ' (' + p.slice(0,3); if (p.length >= 3) s += ')'; if (p.length > 3) s += ' ' + p.slice(3,6); if (p.length > 6) s += '-' + p.slice(6,8); if (p.length > 8) s += '-' + p.slice(8,10); return s; }
+  phone.addEventListener('input', () => { phone.value = phone.value ? fmt(digits(phone.value)) : ''; });
+  phone.addEventListener('focus', () => { if (!phone.value) phone.value = '+7 ('; });
+  phone.addEventListener('blur', () => { if (digits(phone.value).length <= 1) phone.value = ''; });
+
+  // Форма
+  const form = document.getElementById('lead-form');
+  const status = form.querySelector('.form__status');
+  const btn = form.querySelector('button[type=submit]');
+  function setErr(name, on){ form.querySelector('[data-field="'+name+'"]').classList.toggle('is-error', on); }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = ''; status.className = 'form__status';
+    const name = document.getElementById('f-name').value.trim();
+    const okName = name.length >= 2;
+    const okPhone = digits(phone.value).length === 11;
+    const okConsent = document.getElementById('f-consent').checked;
+    setErr('name', !okName); setErr('phone', !okPhone); setErr('consent', !okConsent);
+    if (!(okName && okPhone && okConsent)) { form.querySelector('.is-error .input, .is-error input')?.focus(); return; }
+    const data = { name, phone: phone.value, type: document.getElementById('f-type').value, area: document.getElementById('f-area').value };
+    if (!CONFIG.formEndpoint) {
+      status.className = 'form__status is-err';
+      status.innerHTML = 'Онлайн-заявки пока не подключены. Позвоните нам: <a href="tel:' + CONFIG.phone + '">' + CONFIG.phone + '</a>';
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Отправляем…';
+    try {
+      const r = await fetch(CONFIG.formEndpoint, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data) });
+      if (!r.ok) throw new Error(r.status);
+      form.classList.add('is-sent');
+    } catch (err) {
+      status.className = 'form__status is-err';
+      status.innerHTML = 'Заявка не отправилась: нет связи с сервером. Попробуйте ещё раз или позвоните: <a href="tel:' + CONFIG.phone + '">' + CONFIG.phone + '</a>';
+    } finally { btn.disabled = false; btn.textContent = 'Записаться на замер'; }
+  });
+  ['f-name','f-phone','f-consent'].forEach(id => document.getElementById(id).addEventListener('input', e => e.target.closest('.field').classList.remove('is-error')));
+
+  // Лазерная линия в шагах: заполняется по мере прокрутки
+  const steps = document.querySelector('.steps');
+  if (steps && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    const upd = () => { const r = steps.getBoundingClientRect(); const vh = innerHeight; const p = Math.min(1, Math.max(0, (vh * 0.7 - r.top) / r.height)); steps.style.setProperty('--p', p.toFixed(3)); ticking = false; };
+    const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { addEventListener('scroll', onS, {passive:true}); upd(); } else removeEventListener('scroll', onS); });
+    function onS(){ if (!ticking) { ticking = true; requestAnimationFrame(upd); } }
+    io.observe(steps);
+  }
+})();
+</script>
+</body>
+</html>
