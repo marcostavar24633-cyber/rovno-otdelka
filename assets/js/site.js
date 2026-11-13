@@ -461,7 +461,7 @@ const CONFIG = {
   cards.forEach((c, i) => c.style.setProperty("--i", i));
   if (F.stackCards) cards.forEach((c, i) => {
     const nextCard = cards[i + 1]; if (!nextCard) return;
-    gsap.to(c, { scale: .92 - (cards.length - i) * .01, autoAlpha: .55, ease: "none", scrollTrigger: { trigger: nextCard, start: "top bottom", end: "top " + (100 + i * 18) + "px", scrub: true } });
+    gsap.to(c, { scale: .92 - (cards.length - i) * .01, "--dim": .65, ease: "none", scrollTrigger: { trigger: nextCard, start: "top bottom", end: "top " + (100 + i * 18) + "px", scrub: true } });
   });
 
   // --- бегущие строки: скорость от скролла ---
