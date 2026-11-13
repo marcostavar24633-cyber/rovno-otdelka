@@ -27,6 +27,7 @@
   "description": "Черновая и чистовая отделка квартир, санузлов и коммерческих помещений в Ульяновске.",
   "url": "https://marcostavar24633-cyber.github.io/rovno-otdelka/",
   "image": "https://marcostavar24633-cyber.github.io/rovno-otdelka/assets/og.png",
+  "telephone": "+7-963-128-25-58",
   "areaServed": {"@type": "City", "name": "Ульяновск"},
   "address": {"@type": "PostalAddress", "addressLocality": "Ульяновск", "addressCountry": "RU"},
   "makesOffer": [
@@ -48,7 +49,7 @@
     {"@type": "Question", "name": "Кто покупает материалы?", "acceptedAnswer": {"@type": "Answer", "text": "Как вам удобнее. Можем закупить и привезти сами по списку из сметы, а можете покупать вы — дадим точный список с количеством."}},
     {"@type": "Question", "name": "Работаете в новостройках с предчистовой отделкой и white box?", "acceptedAnswer": {"@type": "Answer", "text": "Да. На замере проверим, что застройщик уже сделал, и в смету включим только то, что действительно нужно доделать."}},
     {"@type": "Question", "name": "Как контролировать работу, если я не могу приезжать?", "acceptedAnswer": {"@type": "Answer", "text": "Каждый этап принимаете по фото и видео в мессенджере или лично на объекте. Следующий этап начинаем только после вашей приёмки."}},
-    {"@type": "Question", "name": "А если после сдачи что-то пойдёт не так?", "acceptedAnswer": {"@type": "Answer", "text": "На работы действует гарантия по договору. Если дефект появился по нашей вине, устраним его за свой счёт."}}
+    {"@type": "Question", "name": "А если после сдачи что-то пойдёт не так?", "acceptedAnswer": {"@type": "Answer", "text": "На работы действует гарантия 1 год по договору. Если дефект появился по нашей вине, устраним его за свой счёт."}}
   ]
 }
 </script>
@@ -197,6 +198,12 @@ p{margin:0}
 .ph{aspect-ratio:4/3;border:2px dashed var(--c-line);border-radius:var(--r-m);display:grid;place-items:center;text-align:center;padding:var(--s-5);color:var(--c-muted);font-weight:500;background:repeating-linear-gradient(-45deg, transparent 0 14px, rgba(30,36,34,.03) 14px 28px)}
 @media (min-width:768px){.works{grid-template-columns:repeat(3,1fr)}}
 
+.gallery{display:grid;gap:var(--s-2)}
+.vis{margin:0;border-radius:var(--r-m);overflow:hidden;background:var(--c-line)}
+.vis img{width:100%;height:100%;aspect-ratio:3/2;object-fit:cover}
+.gallery__note{margin-top:var(--s-4);font-size:var(--fs-xs);color:var(--c-muted)}
+@media (min-width:768px){.gallery{grid-template-columns:repeat(6,1fr)}.vis{grid-column:span 2}.vis:nth-child(-n+2){grid-column:span 3}}
+
 /* FAQ */
 .faq{border-top:2px solid var(--c-ink);max-width:860px}
 .faq details{border-bottom:1px solid var(--c-line)}
@@ -270,7 +277,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
       <a href="#voprosy">Вопросы</a>
     </nav>
     <div class="header__right">
-      <a class="header__phone" href="tel:[ТЕЛЕФОН]">[ТЕЛЕФОН]</a>
+      <a class="header__phone" href="tel:+79631282558">+7 963 128-25-58</a>
       <a class="btn btn--primary btn--sm" href="#zayavka">Вызвать замерщика</a>
     </div>
   </div>
@@ -308,7 +315,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
       <ul class="trust">
         <li>Смета по каждому помещению до начала работ, приложением к договору</li>
         <li>Оплата по этапам: приняли этап — оплатили</li>
-        <li>Гарантия на работы [СРОК ГАРАНТИИ] по договору</li>
+        <li>Гарантия на работы 1 год по договору</li>
       </ul>
     </div>
   </section>
@@ -379,17 +386,17 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
       <div class="prices">
         <div class="price">
           <h3>Черновая отделка</h3>
-          <div class="price__val">от [ЦЕНА] <small>₽/м²</small></div>
+          <div class="price__val">от 10 000 <small>₽/м²</small></div>
           <p>Для квартир в новостройках без отделки.</p>
         </div>
         <div class="price">
           <h3>Чистовая отделка</h3>
-          <div class="price__val">от [ЦЕНА] <small>₽/м²</small></div>
+          <div class="price__val">от 15 000 <small>₽/м²</small></div>
           <p>Для квартир с предчистовой отделкой и white box.</p>
         </div>
         <div class="price">
           <h3>Отделка под ключ</h3>
-          <div class="price__val">от [ЦЕНА] <small>₽/м²</small></div>
+          <div class="price__val">от 20 000 <small>₽/м²</small></div>
           <p>Весь цикл: от бетона до готовой квартиры.</p>
         </div>
       </div>
@@ -419,14 +426,17 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
   <section class="section" id="raboty">
     <div class="container">
       <div class="section__head">
-        <h2>Наши объекты</h2>
-        <p>Квартиры и офисы, которые мы отделали в Ульяновске.</p>
+        <h2>Какой может быть ваша квартира</h2>
+        <p>Примеры отделки, которую мы делаем: санузел, кухня, гостиная, спальня, прихожая.</p>
       </div>
-      <div class="works">
-        <div class="ph">[ФОТО: объект 1, до и после]</div>
-        <div class="ph">[ФОТО: объект 2, санузел с плиткой]</div>
-        <div class="ph">[ФОТО: объект 3, готовая комната]</div>
+      <div class="gallery">
+        <figure class="vis"><img src="assets/vis-sanuzel.webp" alt="Санузел с крупноформатной плиткой под камень, душевой с перегородкой и подсветкой" width="1200" height="800" loading="lazy" decoding="async"></figure>
+        <figure class="vis"><img src="assets/vis-kuhnya.webp" alt="Кухня-столовая в бежево-серых тонах с декоративной штукатуркой на стене" width="1200" height="800" loading="lazy" decoding="async"></figure>
+        <figure class="vis"><img src="assets/vis-gostinaya.webp" alt="Гостиная с угловым диваном, рейками на стене и многоуровневым потолком с подсветкой" width="1200" height="800" loading="lazy" decoding="async"></figure>
+        <figure class="vis"><img src="assets/vis-spalnya.webp" alt="Спальня с потолком с парящей подсветкой и рейками у изголовья" width="1200" height="800" loading="lazy" decoding="async"></figure>
+        <figure class="vis"><img src="assets/vis-prihozhaya.webp" alt="Прихожая с керамогранитом под мрамор, встроенными шкафами и зеркалом с подсветкой" width="1200" height="675" loading="lazy" decoding="async"></figure>
       </div>
+      <p class="gallery__note">Изображения — визуализации интерьеров, а не фотографии с наших объектов.</p>
     </div>
   </section>
 
@@ -442,7 +452,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
         <details><summary>Кто покупает материалы?</summary><p>Как вам удобнее. Можем закупить и привезти сами по списку из сметы, а можете покупать вы — дадим точный список с количеством.</p></details>
         <details><summary>Работаете в новостройках с предчистовой отделкой и white box?</summary><p>Да. На замере проверим, что застройщик уже сделал, и в смету включим только то, что действительно нужно доделать.</p></details>
         <details><summary>Как контролировать работу, если я не могу приезжать?</summary><p>Каждый этап принимаете по фото и видео в мессенджере или лично на объекте. Следующий этап начинаем только после вашей приёмки.</p></details>
-        <details><summary>А если после сдачи что-то пойдёт не так?</summary><p>На работы действует гарантия по договору. Если дефект появился по нашей вине, устраним его за свой счёт.</p></details>
+        <details><summary>А если после сдачи что-то пойдёт не так?</summary><p>На работы действует гарантия 1 год по договору. Если дефект появился по нашей вине, устраним его за свой счёт.</p></details>
       </div>
     </div>
   </section>
@@ -453,8 +463,8 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
         <h2>Запишитесь на бесплатный замер</h2>
         <p class="cta__lead">Перезвоним, договоримся о времени и приедем. Смету по каждому помещению пришлём после замера.</p>
         <div class="contacts">
-          <a href="tel:[ТЕЛЕФОН]">[ТЕЛЕФОН]</a>
-          <a href="[ССЫЛКА НА TELEGRAM]" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a href="tel:+79631282558">+7 963 128-25-58</a>
+          <a href="https://t.me/+79631282558" target="_blank" rel="noopener">Написать в Telegram</a>
         </div>
       </div>
       <form class="form" id="lead-form" novalidate>
@@ -501,12 +511,12 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
   <div class="container footer__in">
     <a class="logo" href="#top">Ровно</a>
     <p>Внутренняя отделка помещений, Ульяновск<br>[РЕКВИЗИТЫ: ИП/ООО, ИНН, ОГРН]</p>
-    <p><a href="tel:[ТЕЛЕФОН]">[ТЕЛЕФОН]</a><br><a href="privacy.html">Политика конфиденциальности</a></p>
+    <p><a href="tel:+79631282558">+7 963 128-25-58</a><br><a href="privacy.html">Политика конфиденциальности</a></p>
   </div>
 </footer>
 
 <div class="sticky-cta">
-  <a class="btn btn--secondary btn--sm" href="tel:[ТЕЛЕФОН]">Позвонить</a>
+  <a class="btn btn--secondary btn--sm" href="tel:+79631282558">Позвонить</a>
   <a class="btn btn--primary btn--sm" href="#zayavka">Вызвать замерщика</a>
 </div>
 
@@ -514,7 +524,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 const CONFIG = {
   // Адрес обработчика формы (например, https://formspree.io/f/xxxxxx). Пока пусто — форма предложит позвонить.
   formEndpoint: "",
-  phone: "[ТЕЛЕФОН]"
+  phone: "+7 963 128-25-58"
 };
 
 (function(){
