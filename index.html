@@ -15,6 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a0908" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fff1e6" media="(prefers-color-scheme: light)">
+<link rel="preload" as="image" href="assets/hero-1920.webp" imagesrcset="assets/hero-960.webp 960w, assets/hero-1920.webp 1920w" imagesizes="100vw">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script>try{var t=localStorage.getItem("rovno-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -267,6 +268,25 @@ select.input option{background:var(--color-surface);color:var(--color-ink)}
 @media (max-width:767px){body{padding-bottom:92px}.header .btn{display:none}}
 
 
+/* фон первого экрана */
+.hero{position:relative;isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.hero__bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(8,7,6,.92) 0%,rgba(8,7,6,.78) 38%,rgba(8,7,6,.35) 70%,rgba(8,7,6,.25) 100%),
+  linear-gradient(180deg,rgba(8,7,6,.35) 0%,transparent 30%,transparent 65%,var(--color-cream) 100%)}
+[data-theme="light"] .hero__bg::after{background:
+  linear-gradient(90deg,rgba(255,241,230,.95) 0%,rgba(255,241,230,.85) 38%,rgba(255,241,230,.35) 70%,rgba(255,241,230,.2) 100%),
+  linear-gradient(180deg,rgba(255,241,230,.3) 0%,transparent 30%,transparent 65%,var(--color-cream) 100%)}
+@media (max-width:767px){
+  .hero__bg::after{background:linear-gradient(180deg,rgba(8,7,6,.82) 0%,rgba(8,7,6,.78) 55%,var(--color-cream) 100%)}
+  [data-theme="light"] .hero__bg::after{background:linear-gradient(180deg,rgba(255,241,230,.9) 0%,rgba(255,241,230,.86) 55%,var(--color-cream) 100%)}
+}
+.hero{padding-top:72px}
+@media (min-width:1024px){.hero{padding-top:110px}.hero .level-scene{margin-top:80px}}
+.hero__content{position:relative}
+.trust{border-bottom:0}
+
 /* Ровно: тёмная тема — сталь (акцент заменён, чтобы отличаться от «Слопай букета») */
 :root{
   --color-line:rgba(174,186,198,.18); --color-honey:#aebac6; --color-honey-600:#cfdbe6; --color-honey-100:#13171b;
@@ -343,7 +363,8 @@ html{transition:background-color .3s}
 
 <main id="main">
   <section class="hero" id="top">
-    <div class="container">
+    <div class="hero__bg" aria-hidden="true"><img src="assets/hero-1920.webp" srcset="assets/hero-960.webp 960w, assets/hero-1920.webp 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
+    <div class="container hero__content">
       <h1>Отделка квартир в Ульяновске — <span class="text-gold">ровно по смете</span></h1>
       <p class="hero__lead">Черновая и чистовая отделка квартир, санузлов и офисов. Сначала бесплатный замер и смета по каждому помещению, потом договор. Платите по этапам, после того как приняли работу.</p>
       <div class="hero__actions">
@@ -351,7 +372,7 @@ html{transition:background-color .3s}
         <a class="btn btn--secondary btn--lg" href="#ceny">Посмотреть цены</a>
       </div>
     </div>
-    <div class="level-scene" aria-hidden="true">
+    <div class="level-scene hero__content" aria-hidden="true">
       <div class="laser"></div>
       <div class="ruler"></div>
       <svg class="level" viewBox="0 0 460 70" role="presentation">
@@ -369,7 +390,7 @@ html{transition:background-color .3s}
         <g class="bubble"><ellipse cx="230" cy="34" rx="13" ry="8" style="fill:var(--bubble);stroke:var(--bubble-edge)" stroke-width="1"/><ellipse cx="226" cy="31" rx="4" ry="2" fill="#fff"/></g>
       </svg>
     </div>
-    <div class="container">
+    <div class="container hero__content">
       <ul class="trust">
         <li>Смета по каждому помещению до начала работ, приложением к договору</li>
         <li>Оплата по этапам: приняли этап — оплатили</li>
