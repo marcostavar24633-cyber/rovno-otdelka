@@ -481,11 +481,11 @@ select.input option{background:var(--color-surface);color:var(--color-ink)}
 .cta__lead{margin-top:24px;font-size:18px;color:rgba(255,255,255,.7);max-width:44ch}
 .cta__phone{display:inline-block;margin-top:32px;font:500 clamp(28px,3vw,44px)/1 var(--font-display);color:var(--ondark-accent);text-decoration:none}
 .cta .form{padding:clamp(24px,3vw,40px);border-radius:var(--radius-3xl);border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);backdrop-filter:blur(10px)}
-.cta .input,.form--drawer .input{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16);color:#fff}
+.cta .input,.form--drawer .input{background-color:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16);color:#fff}
 .cta .fl label,.form--drawer .fl label{color:rgba(255,255,255,.55)}
 .cta .fl .input:focus + label,.cta .fl .input:not(:placeholder-shown) + label,.cta .fl label.is-static,.form--drawer .fl .input:focus + label,.form--drawer .fl .input:not(:placeholder-shown) + label{color:var(--ondark-accent)}
 .cta .input:focus,.form--drawer .input:focus{border-color:var(--ondark-fill);box-shadow:0 0 0 4px color-mix(in srgb,var(--ondark-fill) 25%,transparent)}
-.cta select.input{background-image:linear-gradient(45deg,transparent 50%,var(--ondark-accent) 50%),linear-gradient(135deg,var(--ondark-accent) 50%,transparent 50%)}
+.cta select.input{background-image:linear-gradient(45deg,transparent 50%,var(--ondark-accent) 50%),linear-gradient(135deg,var(--ondark-accent) 50%,transparent 50%);background-position:calc(100% - 24px) 55%,calc(100% - 18px) 55%;background-size:6px 6px;background-repeat:no-repeat}
 .cta .check,.form--drawer .check{color:rgba(255,255,255,.7)}
 .cta .check__box,.form--drawer .check__box{border-color:rgba(255,255,255,.4)}
 .cta .check input:checked + .check__box,.form--drawer .check input:checked + .check__box{background:var(--ondark-fill);border-color:var(--ondark-fill)}
