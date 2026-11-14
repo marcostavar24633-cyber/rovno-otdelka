@@ -62,7 +62,8 @@ async function deliverLead(lead, requestId) {
       "Authorization": "Bearer " + token,
       "Idempotency-Key": requestId || ""
     },
-    body: JSON.stringify(lead)
+    body: JSON.stringify(lead),
+    signal: AbortSignal.timeout(8000)
   });
 
   if (!upstream.ok) throw new Error("DELIVERY_FAILED");
