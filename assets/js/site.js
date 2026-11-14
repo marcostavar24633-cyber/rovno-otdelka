@@ -209,6 +209,7 @@ const CONFIG = {
 
   /* =================== Калькулятор =================== */
   const calcForm = $("#calc-form"), area = $("#area"), areaOut = $("#area-out"), sumEl = $("#calc-sum"), optsBox = $("#calc-opts");
+  calcForm.addEventListener("submit", e => e.preventDefault());
   CONFIG.calc.options.forEach((o, i) => {
     const l = document.createElement("label"); l.className = "chip";
     const input = document.createElement("input");
