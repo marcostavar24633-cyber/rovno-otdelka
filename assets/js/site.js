@@ -77,7 +77,12 @@ const CONFIG = {
     ph.addEventListener("focus", () => { if (!ph.value) ph.value = "+7 ("; });
     ph.addEventListener("blur", () => { if (digits(ph.value).length <= 1) ph.value = ""; });
   });
-  const telLink = '<a href="' + CONFIG.phoneHref + '">' + CONFIG.phone + "</a>";
+  function showPhoneStatus(status, message) {
+    const link = document.createElement("a");
+    link.href = CONFIG.phoneHref;
+    link.textContent = CONFIG.phone;
+    status.replaceChildren(document.createTextNode(message), link);
+  }
   $$("form[data-lead]").forEach(form => {
     const status = $(".form__status", form);
     const btn = $("button[type=submit]", form);
@@ -93,14 +98,19 @@ const CONFIG = {
       if (!(okName && okPhone && okConsent)) { $(".is-error input", form)?.focus(); return; }
       const data = Object.fromEntries(new FormData(form).entries());
       data.form = form.id || form.className;
-      if (!CONFIG.formEndpoint) { status.className = "form__status is-err"; status.innerHTML = "Онлайн-заявки пока не подключены. Позвоните нам: " + telLink; return; }
+      if (!CONFIG.formEndpoint) {
+        status.className = "form__status is-err";
+        showPhoneStatus(status, "Онлайн-заявки пока не подключены. Позвоните нам: ");
+        return;
+      }
       btn.disabled = true; btn.textContent = "Отправляем…";
       try {
         const r = await fetch(CONFIG.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         if (!r.ok) throw new Error(r.status);
         form.classList.add("is-sent");
       } catch (err) {
-        status.className = "form__status is-err"; status.innerHTML = "Заявка не отправилась: нет связи с сервером. Попробуйте ещё раз или позвоните: " + telLink;
+        status.className = "form__status is-err";
+        showPhoneStatus(status, "Заявка не отправилась: нет связи с сервером. Попробуйте ещё раз или позвоните: ");
       } finally { btn.disabled = false; btn.textContent = btnText; }
     });
   });
@@ -201,7 +211,11 @@ const CONFIG = {
   const calcForm = $("#calc-form"), area = $("#area"), areaOut = $("#area-out"), sumEl = $("#calc-sum"), optsBox = $("#calc-opts");
   CONFIG.calc.options.forEach((o, i) => {
     const l = document.createElement("label"); l.className = "chip";
-    l.innerHTML = '<input type="checkbox" name="opt" value="' + i + '"><span>' + o.label + (o.price ? " · " + fmt(o.price) + (o.per === "m2" ? " ₽/м²" : " ₽") : "") + "</span>";
+    const input = document.createElement("input");
+    input.type = "checkbox"; input.name = "opt"; input.value = String(i);
+    const text = document.createElement("span");
+    text.textContent = o.label + (o.price ? " · " + fmt(o.price) + (o.per === "m2" ? " ₽/м²" : " ₽") : "");
+    l.append(input, text);
     optsBox.appendChild(l);
   });
   let shown = 0;
@@ -285,10 +299,24 @@ const CONFIG = {
     const c = CONFIG.cases[btn.dataset.case];
     $("#case-title").textContent = c.title;
     $("#case-kicker").textContent = "Пример интерьера · " + String(+btn.dataset.case + 1).padStart(2, "0");
-    $("#case-gallery").innerHTML = c.images.map(src => '<img src="' + src + '" alt="' + c.title + ' — визуализация" loading="lazy" width="1200" height="800">').join("");
+    const gallery = $("#case-gallery");
+    gallery.replaceChildren();
+    c.images.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src; img.alt = c.title + " — визуализация";
+      img.loading = "lazy"; img.width = 1200; img.height = 800;
+      gallery.appendChild(img);
+    });
     const facts = [["Площадь", c.area], ["Срок", c.term], ["Бюджет", c.budget]].filter(f => f[1]);
-    $("#case-facts").innerHTML = facts.map(f => "<div><dt>" + f[0] + "</dt><dd>" + f[1] + "</dd></div>").join("");
-    $("#case-facts").hidden = !facts.length;
+    const factsBox = $("#case-facts");
+    factsBox.replaceChildren();
+    facts.forEach(([term, value]) => {
+      const row = document.createElement("div");
+      const dt = document.createElement("dt"), dd = document.createElement("dd");
+      dt.textContent = term; dd.textContent = value;
+      row.append(dt, dd); factsBox.appendChild(row);
+    });
+    factsBox.hidden = !facts.length;
     $("#case-text").textContent = c.text;
     openLayer($("#case"), btn);
   }));
@@ -368,14 +396,35 @@ const CONFIG = {
   function splitLines(el) {
     const words = [];
     [...el.childNodes].forEach(n => {
-      const cls = n.nodeType === 1 ? n.className : "";
-      n.textContent.split(/(\s+)/).forEach(w => { if (w && !/^\s+$/.test(w)) words.push({ w, cls }); });
+      const cls = n.nodeType === 1 && typeof n.className === "string" ? n.className : "";
+      n.textContent.split(/\s+/).filter(Boolean).forEach(w => words.push({ w, cls }));
     });
-    el.innerHTML = words.map(o => '<span class="wtmp ' + o.cls + '">' + o.w + "</span>").join(" ");
+    const measure = document.createDocumentFragment();
+    words.forEach(({ w, cls }) => {
+      const span = document.createElement("span");
+      span.className = "wtmp" + (cls ? " " + cls : "");
+      span.textContent = w;
+      measure.appendChild(span);
+      measure.appendChild(document.createTextNode(" "));
+    });
+    el.replaceChildren(measure);
     const lines = []; let top = null;
-    $$(".wtmp", el).forEach(s => { if (s.offsetTop !== top) { lines.push([]); top = s.offsetTop; } lines[lines.length - 1].push(s.outerHTML.replace("wtmp ", "").replace("wtmp", "")); });
-    el.innerHTML = lines.map(l => '<span class="line-mask"><span>' + l.join(" ") + "</span></span>").join("");
-    return $$(".line-mask > span", el);
+    $(".wtmp", el).forEach(span => {
+      if (span.offsetTop !== top) { lines.push([]); top = span.offsetTop; }
+      lines[lines.length - 1].push(span);
+    });
+    const masks = lines.map(line => {
+      const mask = document.createElement("span"); mask.className = "line-mask";
+      const inner = document.createElement("span");
+      line.forEach((word, index) => {
+        word.classList.remove("wtmp");
+        if (index) inner.appendChild(document.createTextNode(" "));
+        inner.appendChild(word);
+      });
+      mask.appendChild(inner); return mask;
+    });
+    el.replaceChildren(...masks);
+    return $(".line-mask > span", el);
   }
 
   // --- прелоадер → hero ---
