@@ -60,6 +60,7 @@
 </script>
 </head>
 <body>
+<noscript><p>Для отправки онлайн-заявки включите JavaScript. Вы также можете позвонить нам: <a href="tel:+79631282558">+7 963 128-25-58</a>.</p></noscript>
 <a class="skip" href="#main">Перейти к содержанию</a>
 
 <!-- 1. Прелоадер -->
@@ -339,7 +340,7 @@
         <p class="eyebrow">Смета за 2 минуты</p>
         <h2 class="reveal-title">Четыре вопроса — и пришлём предварительную смету</h2>
       </div>
-      <form class="quiz" id="quiz" novalidate data-lead>
+      <form class="quiz" id="quiz" method="post" novalidate data-lead>
         <div class="quiz__progress" aria-hidden="true"><span id="quiz-bar"></span></div>
         <p class="quiz__step-label" id="quiz-label" aria-live="polite">Шаг 1 из 5</p>
         <fieldset class="quiz__step is-active" data-step="1">
@@ -468,7 +469,7 @@
         <p class="cta__lead">Перезвоним, договоримся о времени и приедем. Смету по каждому помещению пришлём после замера.</p>
         <a class="cta__phone" href="tel:+79631282558">+7 963 128-25-58</a>
       </div>
-      <form class="form" id="lead-form" novalidate data-lead>
+      <form class="form" id="lead-form" method="post" novalidate data-lead>
         <div class="field fl" data-field="name"><input class="input" id="f-name" name="name" type="text" autocomplete="given-name" placeholder=" " required><label for="f-name">Как вас зовут</label><span class="field__err">Напишите имя, чтобы мы знали, как к вам обращаться</span></div>
         <div class="field fl" data-field="phone"><input class="input js-phone" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder=" " required><label for="f-phone">Телефон</label><span class="field__err">Введите номер полностью: 10 цифр после +7</span></div>
         <div class="field fl"><select class="input" id="f-type" name="type"><option>Новостройка без отделки</option><option>Новостройка с предчистовой / white box</option><option>Вторичка</option><option>Санузел или кухня</option><option>Офис или магазин</option></select><label for="f-type" class="is-static">Что нужно отделать</label></div>
@@ -511,7 +512,7 @@
     <p class="eyebrow">Обратный звонок</p>
     <h2 id="cb-title">Перезвоним и договоримся о замере</h2>
     <p class="drawer__lead" id="cb-lead">Оставьте имя и телефон. Замер и смета — бесплатно.</p>
-    <form class="form form--drawer" novalidate data-lead>
+    <form class="form form--drawer" method="post" novalidate data-lead>
       <input type="hidden" name="calc" id="cb-calc">
       <div class="field fl" data-field="name"><input class="input" id="cb-name" name="name" type="text" autocomplete="given-name" placeholder=" " required><label for="cb-name">Как вас зовут</label><span class="field__err">Напишите имя</span></div>
       <div class="field fl" data-field="phone"><input class="input js-phone" id="cb-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder=" " required><label for="cb-phone">Телефон</label><span class="field__err">Введите номер полностью: 10 цифр после +7</span></div>
