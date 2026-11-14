@@ -1,0 +1,94 @@
+openapi: "3.0.0"
+info:
+  title: Rovno Lead API
+  version: "1.0.0"
+  description: Private endpoint for receiving website lead forms.
+
+x-yc-apigateway:
+  cors:
+    origin:
+      - https://marcostavar24633-cyber.github.io
+    methods:
+      - POST
+    allowedHeaders:
+      - Content-Type
+    maxAge: 600
+    optionsSuccessStatus: 204
+
+paths:
+  /lead:
+    post:
+      operationId: submitLead
+      summary: Submit a website lead
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - phone
+                - consent
+              properties:
+                name:
+                  type: string
+                  minLength: 2
+                  maxLength: 100
+                phone:
+                  type: string
+                  minLength: 10
+                  maxLength: 30
+                consent:
+                  type: boolean
+                form:
+                  type: string
+                  maxLength: 80
+                type:
+                  type: string
+                  maxLength: 120
+                area:
+                  type: string
+                  maxLength: 30
+                calc:
+                  type: string
+                  maxLength: 1000
+                q_obj:
+                  type: string
+                  maxLength: 120
+                q_state:
+                  type: string
+                  maxLength: 120
+                q_area:
+                  type: string
+                  maxLength: 60
+                q_when:
+                  type: string
+                  maxLength: 80
+                clientRequestId:
+                  type: string
+                  maxLength: 120
+                website:
+                  type: string
+                  maxLength: 200
+      responses:
+        "202":
+          description: Lead accepted by configured receiver.
+        "400":
+          description: Invalid request.
+        "403":
+          description: Origin is not allowed.
+        "413":
+          description: Request body is too large.
+        "415":
+          description: JSON content type is required.
+        "502":
+          description: Delivery provider rejected or failed.
+        "503":
+          description: Delivery provider is not configured.
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: REPLACE_WITH_CLOUD_FUNCTION_ID
+        service_account_id: REPLACE_WITH_GATEWAY_SERVICE_ACCOUNT_ID
+        tag: "$latest"
+        payload_format_version: "0.1"
