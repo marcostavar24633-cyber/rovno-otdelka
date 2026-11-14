@@ -70,7 +70,7 @@ const CONFIG = {
   let lenis = null;
 
   /* =================== Формы =================== */
-  const digits = v => { let d = v.replace(/\D/g, ""); if (d.startsWith("8")) d = "7" + d.slice(1); if (!d.startsWith("7")) d = "7" + d; return d.slice(0, 11); };
+  const digits = v => { let d = String(v || "").replace(/\\D/g, ""); if (d.startsWith("8")) d = "7" + d.slice(1); if (!d.startsWith("7")) d = "7" + d; return d.slice(0, 11); };
   const maskPhone = d => { const p = d.slice(1); let s = "+7"; if (p.length) s += " (" + p.slice(0, 3); if (p.length >= 3) s += ")"; if (p.length > 3) s += " " + p.slice(3, 6); if (p.length > 6) s += "-" + p.slice(6, 8); if (p.length > 8) s += "-" + p.slice(8, 10); return s; };
   $$(".js-phone").forEach(ph => {
     ph.addEventListener("input", () => { ph.value = ph.value ? maskPhone(digits(ph.value)) : ""; });
@@ -83,39 +83,97 @@ const CONFIG = {
     link.textContent = CONFIG.phone;
     status.replaceChildren(document.createTextNode(message), link);
   }
-  $$("form[data-lead]").forEach(form => {
+  function addLeadHoneypot(form) {
+    if ($('[name="website"]', form)) return;
+    const trap = document.createElement("input");
+    trap.type = "text";
+    trap.name = "website";
+    trap.tabIndex = -1;
+    trap.autocomplete = "off";
+    trap.setAttribute("aria-hidden", "true");
+    trap.setAttribute("inputmode", "none");
+    trap.style.cssText = "position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important";
+    form.appendChild(trap);
+  }
+  $$( "form[data-lead]" ).forEach(form => {
+    addLeadHoneypot(form);
     const status = $(".form__status", form);
     const btn = $("button[type=submit]", form);
     const btnText = btn.textContent;
-    const nameI = $("[name=name]", form), phoneI = $("[name=phone]", form), consentI = $("[name=consent]", form);
-    const setErr = (n, on) => $('[data-field="' + n + '"]', form).classList.toggle("is-error", on);
-    [nameI, phoneI, consentI].forEach(i => i.addEventListener("input", () => i.closest(".field").classList.remove("is-error")));
+    const nameI = $('[name="name"]', form), phoneI = $('[name="phone"]', form), consentI = $('[name="consent"]', form);
+    let sending = false;
+    const setErr = (n, on) => {
+      const field = $('[data-field="' + n + '"]', form);
+      if (field) field.classList.toggle("is-error", on);
+    };
+    [nameI, phoneI, consentI].forEach(i => {
+      i.addEventListener("input", () => {
+        const field = i.closest(".field");
+        if (field) field.classList.remove("is-error");
+      });
+      i.addEventListener("change", () => {
+        const field = i.closest(".field");
+        if (field) field.classList.remove("is-error");
+      });
+    });
     form.addEventListener("submit", async e => {
       e.preventDefault();
-      status.textContent = ""; status.className = "form__status";
-      const okName = nameI.value.trim().length >= 2, okPhone = digits(phoneI.value).length === 11, okConsent = consentI.checked;
+      if (sending || form.classList.contains("is-sent")) return;
+      status.textContent = "";
+      status.className = "form__status";
+      const okName = nameI.value.trim().length >= 2;
+      const okPhone = digits(phoneI.value).length === 11;
+      const okConsent = consentI.checked;
       setErr("name", !okName); setErr("phone", !okPhone); setErr("consent", !okConsent);
-      if (!(okName && okPhone && okConsent)) { $(".is-error input", form)?.focus(); return; }
+      if (!(okName && okPhone && okConsent)) {
+        $(".is-error input", form)?.focus();
+        return;
+      }
+
       const data = Object.fromEntries(new FormData(form).entries());
-      data.form = form.id || form.className;
+      data.form = form.id || form.className || "lead-form";
+      data.phone = "+" + digits(phoneI.value);
+      data.consent = true;
+      data.page = location.pathname;
+      data.clientRequestId = (window.crypto && crypto.randomUUID)
+        ? crypto.randomUUID()
+        : "lead-" + Date.now() + "-" + Math.random().toString(36).slice(2, 12);
+
       if (!CONFIG.formEndpoint) {
         status.className = "form__status is-err";
         showPhoneStatus(status, "Онлайн-заявки пока не подключены. Позвоните нам: ");
         return;
       }
-      btn.disabled = true; btn.textContent = "Отправляем…";
+
+      sending = true;
+      btn.disabled = true;
+      btn.textContent = "Отправляем…";
       try {
-        const r = await fetch(CONFIG.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
-        if (!r.ok) throw new Error(r.status);
+        const r = await fetch(CONFIG.formEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(data),
+          credentials: "omit",
+          cache: "no-store"
+        });
+        let result = null;
+        try { result = await r.json(); } catch (_) {}
+        if (!r.ok || !result || result.ok !== true || result.status !== "accepted") {
+          throw new Error("LEAD_NOT_ACCEPTED");
+        }
         form.classList.add("is-sent");
-      } catch (err) {
+      } catch (_) {
         status.className = "form__status is-err";
-        showPhoneStatus(status, "Заявка не отправилась: нет связи с сервером. Попробуйте ещё раз или позвоните: ");
-      } finally { btn.disabled = false; btn.textContent = btnText; }
+        showPhoneStatus(status, "Не удалось подтвердить отправку заявки. Попробуйте ещё раз или позвоните: ");
+      } finally {
+        sending = false;
+        btn.disabled = false;
+        btn.textContent = btnText;
+      }
     });
   });
 
-  /* =================== Тема =================== */
+    /* =================== Тема =================== */
   const tt = $("#theme-toggle");
   const syncTT = () => { const l = root.getAttribute("data-theme") === "light"; tt.setAttribute("aria-label", l ? "Включить тёмную тему" : "Включить светлую тему"); tt.setAttribute("aria-pressed", String(l)); };
   syncTT();
