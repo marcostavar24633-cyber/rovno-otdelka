@@ -95,6 +95,10 @@ module.exports.handler = async function (event) {
     return response(status, { ok: false, error: status === 413 ? "BODY_TOO_LARGE" : "INVALID_REQUEST" }, origin || allowedOrigin);
   }
 
+  if (!input || typeof input !== "object" || Array.isArray(input)) {
+    return response(400, { ok: false, error: "INVALID_REQUEST" }, origin || allowedOrigin);
+  }
+
   // Honeypot: скрытое поле website должно оставаться пустым.
   if (text(input.website, 200)) {
     return response(200, { ok: true }, origin || allowedOrigin);
