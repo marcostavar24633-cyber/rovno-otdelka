@@ -1,0 +1,27 @@
+name: Lead handler checks
+
+on:
+  push:
+    paths:
+      - "functions/lead-handler/**"
+      - ".github/workflows/lead-handler-check.yml"
+  pull_request:
+    paths:
+      - "functions/lead-handler/**"
+      - ".github/workflows/lead-handler-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check syntax
+        run: node --check functions/lead-handler/index.js
+      - name: Run handler tests
+        run: node --test functions/lead-handler/handler.test.js
