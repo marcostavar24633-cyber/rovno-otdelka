@@ -554,7 +554,7 @@
     ["https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js", "https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"]
   ];
   var started = false;
-  function start() { if (started) return; started = true; var s = document.createElement("script"); s.src = "assets/js/site.js?v=4"; document.body.appendChild(s); }
+  function start() { if (started) return; started = true; var s = document.createElement("script"); s.src = "assets/js/site.js?v=5"; document.body.appendChild(s); }
   function load(urls, done) { var i = 0; (function next() { if (i >= urls.length) return done(); var s = document.createElement("script"); s.src = urls[i++]; s.onload = done; s.onerror = function () { s.remove(); next(); }; document.head.appendChild(s); })(); }
   var k = 0; (function nextLib() { if (k >= libs.length) return start(); load(libs[k++], nextLib); })();
   setTimeout(start, 6000);
