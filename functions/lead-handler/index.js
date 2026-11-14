@@ -118,17 +118,24 @@ module.exports.handler = async function (event) {
     name,
     phone: "+" + phone,
     type: text(input.type, 120),
-    object: text(input.object || input.obj, 120),
+    object: text(input.object || input.obj || input.q_obj, 120),
     area: text(input.area, 30),
     calc: text(input.calc, 1000),
     estimate: text(input.estimate, 300),
+    quiz: {
+      object: text(input.q_obj, 120),
+      condition: text(input.q_state, 120),
+      areaRange: text(input.q_area, 60),
+      startWhen: text(input.q_when, 80)
+    },
+    page: text(input.page, 200),
     consent: true,
     receivedAt: new Date().toISOString()
   };
 
   try {
     const requestId = text(
-      event.requestContext && (event.requestContext.requestId || event.requestContext.request_id),
+      input.clientRequestId || (event.requestContext && (event.requestContext.requestId || event.requestContext.request_id)),
       120
     );
     await deliverLead(lead, requestId);
