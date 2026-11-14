@@ -231,22 +231,39 @@ const CONFIG = {
 
   /* =================== Квиз =================== */
   const quiz = $("#quiz"), steps = $$(".quiz__step", quiz), prev = $("#quiz-prev"), next = $("#quiz-next"), submit = $("#quiz-submit"), bar = $("#quiz-bar"), label = $("#quiz-label");
-  let step = 0;
+  let step = 0, quizAdvanceTimer = 0;
   if (CONFIG.quizGift) { const g = $("#quiz-gift"); g.textContent = "Подарок: " + CONFIG.quizGift; g.hidden = false; }
   const answered = i => i === steps.length - 1 || !!$("input:checked", steps[i]);
-  function showStep(i) {
+  function showStep(i, moveFocus = false) {
     steps.forEach((s, k) => s.classList.toggle("is-active", k === i));
     step = i; bar.style.transform = "scaleX(" + ((i + 1) / steps.length) + ")";
     label.textContent = "Шаг " + (i + 1) + " из " + steps.length;
     prev.disabled = i === 0; next.hidden = i === steps.length - 1; submit.hidden = i !== steps.length - 1; next.disabled = !answered(i);
+    if (moveFocus) {
+      const legend = $("legend", steps[i]);
+      legend.setAttribute("tabindex", "-1");
+      legend.focus({ preventScroll: true });
+    }
   }
   quiz.addEventListener("change", e => {
     if (e.target.type !== "radio") return;
     next.disabled = false;
-    if (step < steps.length - 1) setTimeout(() => { showStep(step + 1); $("legend", steps[step]).setAttribute("tabindex", "-1"); }, reduce ? 0 : 350);
+    clearTimeout(quizAdvanceTimer);
+    if (step < steps.length - 1) {
+      const fromStep = step;
+      quizAdvanceTimer = setTimeout(() => {
+        if (step === fromStep && answered(fromStep)) showStep(fromStep + 1, true);
+      }, reduce ? 0 : 350);
+    }
   });
-  next.addEventListener("click", () => { if (answered(step)) showStep(step + 1); });
-  prev.addEventListener("click", () => showStep(Math.max(0, step - 1)));
+  next.addEventListener("click", () => {
+    clearTimeout(quizAdvanceTimer);
+    if (answered(step)) showStep(step + 1, true);
+  });
+  prev.addEventListener("click", () => {
+    clearTimeout(quizAdvanceTimer);
+    showStep(Math.max(0, step - 1), true);
+  });
   showStep(0);
 
   /* =================== До / После =================== */
